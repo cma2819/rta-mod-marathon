@@ -5,7 +5,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import net.cmario.rmm.domain.value.ValueObject;
+import net.cmario.rmm.domain.ValueObject;
 
 /**
  * Presentation value about event.

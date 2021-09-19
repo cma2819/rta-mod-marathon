@@ -1,4 +1,4 @@
-package net.cmario.rmm.domain.value;
+package net.cmario.rmm.domain;
 
 import java.io.Serializable;
 

@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 import java.util.UUID;
+import net.cmario.rmm.domain.identity.EventId;
 import net.cmario.rmm.domain.presentation.model.Event;
 import net.cmario.rmm.domain.presentation.model.EventPresentation;
 import net.cmario.rmm.domain.presentation.model.Location;
-import net.cmario.rmm.domain.value.EventId;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

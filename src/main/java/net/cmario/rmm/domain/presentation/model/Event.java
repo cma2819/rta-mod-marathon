@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import net.cmario.rmm.domain.value.EventId;
+import net.cmario.rmm.domain.identity.EventId;
 
 /**
  * Event entity present information.

@@ -1,6 +1,7 @@
-package net.cmario.rmm.domain.value;
+package net.cmario.rmm.domain.identity;
 
 import lombok.Getter;
+import net.cmario.rmm.domain.ValueObject;
 
 /**
  * Abstract identifier value.
