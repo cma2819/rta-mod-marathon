@@ -6,24 +6,30 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.Setter;
+import net.cmario.rmm.domain.DomainEntity;
 import net.cmario.rmm.domain.identity.EventId;
+import net.cmario.rmm.domain.validation.ValidationNotificationHandler;
 
 /**
  * Event entity present information.
  */
 @Entity
 @NoArgsConstructor
-public class Event {
+public class Event extends DomainEntity {
   
   @EmbeddedId
   @Getter
+  @Setter(AccessLevel.PRIVATE)
   private EventId id;
 
   @Embedded
   @Getter
+  @Setter(AccessLevel.PROTECTED)
   private EventPresentation presentation;
 
   @Embedded
@@ -32,9 +38,11 @@ public class Event {
     @AttributeOverride(name = "address", column = @Column(name = "LOCATION_ADDRESS")),
   })
   @Getter
+  @Setter(AccessLevel.PROTECTED)
   private Location location;
 
   @Getter
+  @Setter(AccessLevel.PROTECTED)
   private boolean isOnsite;
 
   /**
@@ -48,10 +56,11 @@ public class Event {
   ) {
     Event event = new Event();
 
-    event.id = id;
-    event.presentation = presentation;
-    event.location = location;
-    event.isOnsite = isOnsite;
+    event.setId(id);
+
+    event.setPresentation(presentation);
+    event.setLocation(location);
+    event.setOnsite(isOnsite);
 
     return event;
   }
@@ -64,5 +73,9 @@ public class Event {
   public Event changeLocation(Location location) {
     this.location = location;
     return this;
+  }
+
+  public void validate(ValidationNotificationHandler<String> handler) {
+    (new EventValidator(this, handler)).validate();
   }
 }
