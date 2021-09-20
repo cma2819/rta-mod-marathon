@@ -9,24 +9,29 @@ import net.cmario.rmm.domain.identity.EventId;
 import net.cmario.rmm.domain.presentation.model.Event;
 import net.cmario.rmm.domain.presentation.model.EventPresentation;
 import net.cmario.rmm.domain.presentation.model.Location;
+import net.cmario.rmm.domain.presentation.repository.EventRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  * Unit test for EventRepository.
  */
-@DataJpaTest
-public class EventRepositoryTest {
+@SpringBootTest
+@AutoConfigureTestDatabase
+class EventRepositoryTest {
   
   @Autowired
   private EventRepository repository;
 
-  /**
-   * Event エンティティの保存及び ID での取得ができること.
-   */
   @Test
-  public void testStoreEventAndFind() {
+  void testProvideNextId() {
+    assertTrue(this.repository.findById(this.repository.nextIdentifier()).isEmpty());
+  }
+
+  @Test
+  void testStoreEventAndFind() {
     EventId id = new EventId(UUID.randomUUID());
     EventPresentation presentation = new EventPresentation("Event Name", "This is RTA event.");
     Event event = Event.create(id, presentation, null, Boolean.FALSE);

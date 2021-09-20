@@ -12,7 +12,7 @@ import net.cmario.rmm.domain.ValueObject;
  */
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Location extends ValueObject {
+public class Location implements ValueObject {
 
   @Getter
   private String name;
