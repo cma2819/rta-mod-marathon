@@ -56,7 +56,7 @@ public class Event {
     return event;
   }
 
-  public Event editPresentation(EventPresentation presentation) {
+  public Event editPresentation(@NonNull EventPresentation presentation) {
     this.presentation = presentation;
     return this;
   }
