@@ -12,7 +12,7 @@ import net.cmario.rmm.domain.ValueObject;
  */
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class EventPresentation implements ValueObject {
+public class EventPresentation extends ValueObject {
   
   @Getter
   private String name;

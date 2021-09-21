@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Interface for Value Object.
  */
-public interface ValueObject extends Serializable {
+public abstract class ValueObject implements Serializable {
 
   @Override
   public abstract boolean equals(Object opponent);

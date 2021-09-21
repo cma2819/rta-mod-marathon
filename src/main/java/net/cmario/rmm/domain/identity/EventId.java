@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  */
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class EventId extends BaseIdentifier<UUID> {
+public class EventId extends Identifier<UUID> {
 
   @Getter
   private UUID id;
