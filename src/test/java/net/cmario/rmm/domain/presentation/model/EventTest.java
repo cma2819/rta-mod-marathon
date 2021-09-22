@@ -1,4 +1,4 @@
-package net.cmario.rmm.domain.presentation;
+package net.cmario.rmm.domain.presentation.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -7,10 +7,6 @@ import java.util.UUID;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 import net.cmario.rmm.domain.identity.EventId;
-import net.cmario.rmm.domain.presentation.model.Event;
-import net.cmario.rmm.domain.presentation.model.EventPresentation;
-import net.cmario.rmm.domain.presentation.model.Location;
-import net.cmario.rmm.domain.presentation.model.Slug;
 import net.cmario.rmm.domain.validation.ValidationNotificationHandler;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
