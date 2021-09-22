@@ -23,7 +23,7 @@ public class Slug extends ValueObject {
    * - Use only a-z, A-Z and "-"
    * - Start with a-z, A-Z only.
    * - Length 4-32 characters.
-   * 
+   *
    * @param value Slug value.
    */
   public Slug(@NonNull String value) {
