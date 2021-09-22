@@ -9,6 +9,7 @@ import net.cmario.rmm.domain.identity.EventId;
 import net.cmario.rmm.domain.presentation.model.Event;
 import net.cmario.rmm.domain.presentation.model.EventPresentation;
 import net.cmario.rmm.domain.presentation.model.Location;
+import net.cmario.rmm.domain.presentation.model.Slug;
 import net.cmario.rmm.domain.presentation.repository.EventRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,8 +32,9 @@ class EventRepositoryTest {
   @BeforeEach
   public void setup() {
     EventId id = new EventId(UUID.randomUUID());
+    Slug slug = new Slug("rtaij");
     EventPresentation presentation = new EventPresentation("Event Name", "This is RTA event.");
-    this.event = Event.create(id, presentation, null, Boolean.FALSE);
+    this.event = Event.create(id, slug, presentation, null, Boolean.FALSE);
   }
 
   @Test

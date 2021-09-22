@@ -3,7 +3,7 @@ package net.cmario.rmm.domain;
 import java.io.Serializable;
 
 /**
- * Interface for Value Object.
+ * Abstract class for Value Object.
  */
 public abstract class ValueObject implements Serializable {
 

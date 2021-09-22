@@ -10,6 +10,7 @@ import net.cmario.rmm.domain.identity.EventId;
 import net.cmario.rmm.domain.presentation.model.Event;
 import net.cmario.rmm.domain.presentation.model.EventPresentation;
 import net.cmario.rmm.domain.presentation.model.Location;
+import net.cmario.rmm.domain.presentation.model.Slug;
 import net.cmario.rmm.domain.validation.ValidationNotificationHandler;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -39,8 +40,9 @@ class EventTest {
   void testPassValidation(EventPresentation presentation, Location location, boolean isOnsite) {
 
     EventId id = new EventId(UUID.randomUUID());
+    Slug slug = new Slug("rtaij");
 
-    Event event = Event.create(id, presentation, location, isOnsite);
+    Event event = Event.create(id, slug, presentation, location, isOnsite);
     event.validate(new NeverCalledNotificationHandler());
     return;
   }
@@ -71,8 +73,9 @@ class EventTest {
       EventPresentation presentation, Location location, boolean isOnsite, String error
   ) {
     EventId id = new EventId(UUID.randomUUID());
+    Slug slug = new Slug("rtaij");
 
-    Event event = Event.create(id, presentation, location, isOnsite);
+    Event event = Event.create(id, slug, presentation, location, isOnsite);
     event.validate(new MustCalledNotificationHandler(error));
   }
 

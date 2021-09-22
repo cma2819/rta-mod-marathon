@@ -29,6 +29,11 @@ public class Event extends DomainEntity {
 
   @Embedded
   @Getter
+  @Setter(AccessLevel.PRIVATE)
+  private Slug slug;
+
+  @Embedded
+  @Getter
   @Setter(AccessLevel.PROTECTED)
   private EventPresentation presentation;
 
@@ -50,6 +55,7 @@ public class Event extends DomainEntity {
    */
   public static Event create(
       @NonNull EventId id,
+      @NonNull Slug slug,
       @NonNull EventPresentation presentation,
       Location location,
       boolean isOnsite
@@ -57,6 +63,7 @@ public class Event extends DomainEntity {
     Event event = new Event();
 
     event.setId(id);
+    event.setSlug(slug);
 
     event.setPresentation(presentation);
     event.setLocation(location);
